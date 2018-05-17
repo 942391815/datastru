@@ -17,8 +17,17 @@ public class Test {
         node2.setData(3);
         node1.setNextNode(node2);
 
+        Node node3 = reverseNode2(node);
+        System.out.println(node3);
+    }
 
-        System.out.println(reverseNode1(node));
+    public static Node reverseNode2(Node node){
+        if(node.getNextNode()==null) return node;
+        Node next = node.getNextNode();
+        node.setNextNode(null);
+        Node re = reverseNode2(next);
+        next.setNextNode(node);
+        return re;
     }
 
     public static Node reverseNode1(Node node){
